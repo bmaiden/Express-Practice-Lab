@@ -2,6 +2,9 @@
 const express = require("express");
 const path = require("path");
 
+// require the student database
+const studentDb = require("./data/student-db");
+
 // create express app
 const app = express();
 
@@ -19,6 +22,12 @@ app.get("/", function (req, res) {
 // other route directories
 app.get("/home", function (req, res) {
   res.render("home");
+});
+
+app.get("/students", function (req, res) {
+  res.render("students/index", {
+    students: studentDb.getAll(),
+  });
 });
 
 // add port for app to listen on
