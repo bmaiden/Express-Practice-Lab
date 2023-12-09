@@ -15,9 +15,13 @@ app.set("views", path.join(__dirname, "views"));
 // mount middleware (app.use)
 
 // "root" route directory
+// app.get("/", function (req, res) {
+//   res.send("<h1>Hello World</h1>");
+// });
+
 app.get("/", function (req, res) {
-  res.send("<h1>Hello World</h1>");
-});
+    res.redirect("/students");
+  });  
 
 // other route directories
 app.get("/home", function (req, res) {
